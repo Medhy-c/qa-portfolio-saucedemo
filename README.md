@@ -1,8 +1,8 @@
 # Portfolio QA Junior – SauceDemo
 
-![Status](https://img.shields.io/badge/Status-En%20cours-yellow)
+![Status](https://img.shields.io/badge/Status-Terminé%20(Manuel%20+%20Auto)-success)
 ![ISTQB](https://img.shields.io/badge/ISTQB-Foundation%20Level%20(préparation)-blue)
-![Automation](https://img.shields.io/badge/Automation-Playwright-green)
+![Automation](https://img.shields.io/badge/Automation-Playwright%20+%20TypeScript-green)
 
 ## Présentation
 
@@ -13,7 +13,7 @@ Ce projet a pour objectif de démontrer mes compétences en :
 - Conception de cas de tests (techniques ISTQB)
 - Rédaction de Test Plan et Bug Reports professionnels
 - Exécution de tests manuels et reporting
-- Automatisation de tests avec **Playwright** (TypeScript) – *en cours*
+- Automatisation de tests avec **Playwright + TypeScript**
 - Utilisation de Git / GitHub
 
 ---
@@ -42,16 +42,17 @@ Site e-commerce de démonstration spécialement conçu pour la pratique des test
 
 qa-portfolio-saucedemo/
 ├── 01-Test-Plan/               # Plan de test
-├── 02-Test-Cases/              # Cas de tests par module
-├── 03-Bug-Reports/             # Rapports de bugs + preuves
+├── 02-Test-Cases/              # Cas de tests manuels par module
+├── 03-Bug-Reports/             # Rapports de bugs + captures d'écran
 ├── 04-Test-Execution/          # Rapports d’exécution
-├── 05-Automation/              # Tests automatisés Playwright (à venir)
+├── 05-Automation/              # Tests automatisés Playwright
 ├── 06-Notes-ISTQB/             # Notes d’exploration et techniques
 └── README.md
 
+
 ---
 
-## Modules testés
+## Tests Manuels
 
 | Module          | Nombre de Test Cases | Statut      | Bugs trouvés |
 |-----------------|----------------------|-------------|--------------|
@@ -67,9 +68,29 @@ qa-portfolio-saucedemo/
 
 | ID       | Titre                                              | Sévérité  | Lien |
 |----------|----------------------------------------------------|-----------|------|
-| BUG-001  | Last Name écrase First Name (problem_user)         | Majeure   | [Voir](./03-Bug-Reports/BUG-001_Checkout_LastName_Overwrite.md) |
-| BUG-002  | Images des produits identiques (problem_user)      | Moyenne   | [Voir](./03-Bug-Reports/BUG-002_Images_Identiques_problem_user.md) |
-| BUG-003  | Page About renvoie une erreur 404                  | Mineure   | [Voir](./03-Bug-Reports/BUG-003_About_Page_404.md) |
+| BUG-001  | Last Name écrase First Name (problem_user)         | Majeure   | [Voir le bug](03-Bug-Reports/BUG-001_Checkout_LastName_Overwrite.md) |
+| BUG-002  | Images des produits identiques (problem_user)      | Moyenne   | [Voir le bug](03-Bug-Reports/BUG-002_Images_Identiques_problem_user.md) |
+| BUG-003  | Page About renvoie une erreur 404                  | Mineure   | [Voir le bug](03-Bug-Reports/BUG-003_About_Page_404.md) |
+
+---
+
+## Automatisation (Playwright + TypeScript)
+
+J’ai automatisé les scénarios critiques suivants :
+
+| ID Test Auto     | Description                                      | Statut  |
+|------------------|--------------------------------------------------|---------|
+| TC-AUTO-001      | Connexion réussie avec standard_user             | Passé   |
+| TC-AUTO-002      | Connexion échouée avec locked_out_user           | Passé   |
+| TC-AUTO-003      | Parcours complet (Login → Panier → Checkout)     | Passé   |
+
+**Lancer les tests automatisés :**
+
+"npx playwright test"
+
+**Voir le rapport HTML :**
+
+npx playwright show-report
 
 ---
 
@@ -86,15 +107,17 @@ qa-portfolio-saucedemo/
 
 ## Prochaines étapes
 
-- [ ] Automatisation des scénarios critiques avec Playwright + TypeScript
-- [ ] Mise en place d’un rapport HTML
-- [ ] Intégration GitHub Actions (CI)
-- [ ] Ajout de tests API (Postman)
+Tests manuels complets (Login, Inventory, Cart, Checkout)
+Rédaction de Bug Reports professionnels
+Automatisation des scénarios critiques avec Playwright
+Amélioration du framework (Page Object Model)
+Intégration GitHub Actions (CI)
+Ajout de tests API (Postman)
 
 ---
 
 ## Contact
 
-Je suis ouvert aux opportunités de **Testeur QA Junior** sur Lille et sa région.
+Je suis ouvert aux opportunités de **Testeur QA Junior** sur Lille et dans la région du Pas de Calais.
 
 N’hésitez pas à me contacter !
