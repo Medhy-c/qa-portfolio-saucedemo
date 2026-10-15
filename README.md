@@ -1,8 +1,9 @@
 # Portfolio QA Junior – SauceDemo
 
-![Status](https://img.shields.io/badge/Status-Terminé%20(Manuel%20+%20Auto)-success)
+![Status](https://img.shields.io/badge/Status-Terminé-success)
 ![ISTQB](https://img.shields.io/badge/ISTQB-Foundation%20Level%20(préparation)-blue)
 ![Automation](https://img.shields.io/badge/Automation-Playwright%20+%20TypeScript-green)
+![CI](https://img.shields.io/badge/CI-GitHub%20Actions-blue)
 
 ## Présentation
 
@@ -76,48 +77,53 @@ qa-portfolio-saucedemo/
 
 ## Automatisation (Playwright + TypeScript)
 
-J’ai automatisé les scénarios critiques suivants :
+J’ai automatisé les scénarios critiques suivants avec une architecture **Page Object Model** + **Data Driven** :
 
 | ID Test Auto     | Description                                      | Statut  |
 |------------------|--------------------------------------------------|---------|
 | TC-AUTO-001      | Connexion réussie avec standard_user             | Passé   |
 | TC-AUTO-002      | Connexion échouée avec locked_out_user           | Passé   |
 | TC-AUTO-003      | Parcours complet (Login → Panier → Checkout)     | Passé   |
+| TC-AUTO-004      | Vérification du nombre de produits (6)           | Passé   |
+| TC-AUTO-005      | Tri des produits par nom (A to Z)                | Passé   |
 
-**Lancer les tests automatisés :**
+**Technologies & pratiques utilisées :**
+- Playwright + TypeScript
+- Page Object Model (POM)
+- Data Driven Testing
+- GitHub Actions (CI)
 
-"npx playwright test"
+**Lancer les tests localement :**
+
+npx playwright test
 
 **Voir le rapport HTML :**
 
 npx playwright show-report
 
----
+Les tests s’exécutent aussi automatiquement à chaque push grâce à GitHub Actions.
 
 ## Techniques ISTQB utilisées
 
-- Equivalence Partitioning
-- Boundary Value Analysis
-- Decision Table
-- Error Guessing
-- State Transition
-- Tests exploratoires
-
----
+Equivalence Partitioning
+Boundary Value Analysis
+Decision Table
+Error Guessing
+State Transition
+Tests exploratoires
 
 ## Prochaines étapes
 
-Tests manuels complets (Login, Inventory, Cart, Checkout)
-Rédaction de Bug Reports professionnels
-Automatisation des scénarios critiques avec Playwright
-Amélioration du framework (Page Object Model)
-Intégration GitHub Actions (CI)
-Ajout de tests API (Postman)
-
----
+- [x] Tests manuels complets (Login, Inventory, Cart, Checkout)
+- [x] Rédaction de Bug Reports professionnels
+- [x] Automatisation des scénarios critiques avec Playwright
+- [x] Amélioration du framework (Page Object Model)
+- [x] Intégration GitHub Actions (CI)
+- [ ] Ajout de tests API (Postman)
 
 ## Contact
 
-Je suis ouvert aux opportunités de **Testeur QA Junior** sur Lille et dans la région du Pas de Calais.
+Je suis ouvert aux opportunités de Testeur QA Junior sur Lille et dans la région du Pas-de-Calais.N’hésitez pas à me contacter !
 
-N’hésitez pas à me contacter !
+
+
