@@ -1,0 +1,193 @@
+{
+  "info": {
+    "_postman_id": "8ee5a8f2-c81b-4f32-86a4-21a2ba1cf93a",
+    "name": "ReqRes API - Portfolio QA",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "59024203",
+    "_collection_link": "https://go.postman.co/collection/59024203-8ee5a8f2-c81b-4f32-86a4-21a2ba1cf93a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GET - Liste des utilisateurs",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Response time is less than 1000ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(1000);\r\n});\r\n\r\npm.test(\"Page is 2\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.page).to.eql(2);\r\n});\r\n\r\npm.test(\"There are users in the response\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.data.length).to.be.above(0);\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://reqres.in/api/users?page=2\n\n",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "2\n\n"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET - Utilisateur par ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"User has id, email, first_name and last_name\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.data).to.have.property(\"id\");\r\n    pm.expect(jsonData.data).to.have.property(\"email\");\r\n    pm.expect(jsonData.data).to.have.property(\"first_name\");\r\n    pm.expect(jsonData.data).to.have.property(\"last_name\");\r\n});\r\n\r\npm.test(\"User id is 2\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.data.id).to.eql(2);\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://reqres.in/api/users/2\n\n",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users",
+            "2\n\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST - Créer un utilisateur",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {\r\n    pm.response.to.have.status(201);\r\n});\r\n\r\npm.test(\"Response has name and job\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData).to.have.property(\"name\");\r\n    pm.expect(jsonData).to.have.property(\"job\");\r\n    pm.expect(jsonData).to.have.property(\"id\");\r\n    pm.expect(jsonData).to.have.property(\"createdAt\");\r\n});\r\n\r\npm.test(\"Name is Medhy\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.name).to.eql(\"Medhy\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Medhy\",\r\n    \"job\": \"QA Tester\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://reqres.in/api/users\n\n",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users\n\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT - Modifier un utilisateur",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Response contains updated name and job\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.name).to.eql(\"Medhy Updated\");\r\n    pm.expect(jsonData.job).to.eql(\"Senior QA\");\r\n    pm.expect(jsonData).to.have.property(\"updatedAt\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Medhy Updated\",\r\n    \"job\": \"Senior QA\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://reqres.in/api/users/2\n\n",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users",
+            "2\n\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE - Supprimer un utilisateur",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 204\", function () {\r\n    pm.response.to.have.status(204);\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://reqres.in/api/users/2\n\n",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users",
+            "2\n\n"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -4,6 +4,7 @@
 ![ISTQB](https://img.shields.io/badge/ISTQB-Foundation%20Level%20(préparation)-blue)
 ![Automation](https://img.shields.io/badge/Automation-Playwright%20+%20TypeScript-green)
 ![CI](https://img.shields.io/badge/CI-GitHub%20Actions-blue)
+![API](https://img.shields.io/badge/API-Postman-orange)
 
 ## Présentation
 
@@ -15,6 +16,7 @@ Ce projet a pour objectif de démontrer mes compétences en :
 - Rédaction de Test Plan et Bug Reports professionnels
 - Exécution de tests manuels et reporting
 - Automatisation de tests avec **Playwright + TypeScript**
+- Tests API avec **Postman**
 - Utilisation de Git / GitHub
 
 ---
@@ -48,6 +50,7 @@ qa-portfolio-saucedemo/
 ├── 04-Test-Execution/          # Rapports d’exécution
 ├── 05-Automation/              # Tests automatisés Playwright
 ├── 06-Notes-ISTQB/             # Notes d’exploration et techniques
+├── 07-API-Tests/               # Collection Postman
 └── README.md
 
 
@@ -103,14 +106,33 @@ npx playwright show-report
 
 Les tests s’exécutent aussi automatiquement à chaque push grâce à GitHub Actions.
 
+## Tests API (Postman)
+
+J’ai réalisé des tests API sur l’API publique **ReqRes** :
+
+| Méthode | Endpoint              | Description                  | Statut |
+|---------|-----------------------|------------------------------|--------|
+| GET     | /api/users?page=2     | Liste des utilisateurs       | Passé  |
+| GET     | /api/users/2          | Récupérer un utilisateur     | Passé  |
+| POST    | /api/users            | Créer un utilisateur         | Passé  |
+| PUT     | /api/users/2          | Modifier un utilisateur      | Passé  |
+| DELETE  | /api/users/2          | Supprimer un utilisateur     | Passé  |
+
+La collection Postman est disponible ici :  
+[ReqRes_API_Tests.postman_collection.json](07-API-Tests/ReqRes_API_Tests.postman_collection.json)
+
+---
+
 ## Techniques ISTQB utilisées
 
-Equivalence Partitioning
-Boundary Value Analysis
-Decision Table
-Error Guessing
-State Transition
-Tests exploratoires
+- Equivalence Partitioning
+- Boundary Value Analysis
+- Decision Table
+- Error Guessing
+- State Transition
+- Tests exploratoires
+
+---
 
 ## Prochaines étapes
 
@@ -119,11 +141,12 @@ Tests exploratoires
 - [x] Automatisation des scénarios critiques avec Playwright
 - [x] Amélioration du framework (Page Object Model)
 - [x] Intégration GitHub Actions (CI)
-- [ ] Ajout de tests API (Postman)
+- [x] Ajout de tests API (Postman)
+
+---
 
 ## Contact
 
-Je suis ouvert aux opportunités de Testeur QA Junior sur Lille et dans la région du Pas-de-Calais.N’hésitez pas à me contacter !
+Je suis ouvert aux opportunités de **Testeur QA Junior** sur Lille et dans la région du Pas-de-Calais.
 
-
-
+N’hésitez pas à me contacter !
