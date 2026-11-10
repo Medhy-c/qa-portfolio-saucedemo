@@ -18,13 +18,17 @@ export class InventoryPage {
     await expect(this.title).toHaveText('Products');
   }
 
-  async addProductToCart(productTestId: string) {
-    await this.page.locator(`[data-test="${productTestId}"]`).click();
-  }
+async addProductToCart(productTestId: string) {
+  const button = this.page.locator(`[data-test="${productTestId}"]`);
+  await button.waitFor({ state: 'visible' });
+  await button.click();
+}
 
-  async expectCartBadgeCount(count: string) {
-    await expect(this.cartBadge).toHaveText(count);
-  }
+async expectCartBadgeCount(count: string) {
+  const badge = this.page.locator('.shopping_cart_badge');
+  await badge.waitFor({ state: 'visible' });
+  await expect(badge).toHaveText(count);
+}
 
   async goToCart() {
     await this.cartLink.click();

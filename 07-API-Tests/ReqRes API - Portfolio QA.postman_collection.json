@@ -188,6 +188,67 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "GET - Utilisateur inexistant",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 404\", function () {\r\n    pm.response.to.have.status(404);\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://reqres.in/api/users/999\n\n",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users",
+            "999\n\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST - Body vide",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "pm.test(\"Status code is 201\", function () {\r\n    pm.response.to.have.status(201);\r\n});",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://reqres.in/api/users\n\n",
+          "protocol": "https",
+          "host": [
+            "reqres",
+            "in"
+          ],
+          "path": [
+            "api",
+            "users\n\n"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

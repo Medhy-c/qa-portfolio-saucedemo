@@ -8,10 +8,11 @@
 
 ## Présentation
 
-Bonjour, je m'appelle **Medhy**.  
+Bonjour, je m'appelle **Medhy**.
 Je suis actuellement en préparation de la certification **ISTQB Foundation Level** et je construis ce portfolio pour postuler à des postes de **Testeur QA Junior** (région Lille / Hauts-de-France).
 
 Ce projet a pour objectif de démontrer mes compétences en :
+
 - Conception de cas de tests (techniques ISTQB)
 - Rédaction de Test Plan et Bug Reports professionnels
 - Exécution de tests manuels et reporting
@@ -23,102 +24,129 @@ Ce projet a pour objectif de démontrer mes compétences en :
 
 ## Application sous test
 
-**Sauce Demo (Swag Labs)**  
+**Sauce Demo (Swag Labs)**
 🔗 [https://www.saucedemo.com](https://www.saucedemo.com)
 
 Site e-commerce de démonstration spécialement conçu pour la pratique des tests manuels et automatisés.
 
 ### Comptes de test utilisés
 
-| Username                  | Password       | Comportement                     |
-|---------------------------|----------------|----------------------------------|
-| standard_user             | secret_sauce   | Utilisateur normal               |
-| locked_out_user           | secret_sauce   | Compte bloqué                    |
-| problem_user              | secret_sauce   | Bugs UI et fonctionnels          |
-| performance_glitch_user   | secret_sauce   | Lenteur                          |
-| error_user                | secret_sauce   | Erreurs de formulaire            |
-| visual_user               | secret_sauce   | Bugs visuels                     |
+| Username                | Password     | Comportement            |
+|-------------------------|--------------|-------------------------|
+| standard_user           | secret_sauce | Utilisateur normal      |
+| locked_out_user         | secret_sauce | Compte bloqué           |
+| problem_user            | secret_sauce | Bugs UI et fonctionnels |
+| performance_glitch_user | secret_sauce | Lenteur                 |
+| error_user              | secret_sauce | Erreurs de formulaire   |
+| visual_user             | secret_sauce | Bugs visuels            |
 
 ---
 
 ## Structure du projet
 
+```text
 qa-portfolio-saucedemo/
 ├── 01-Test-Plan/               # Plan de test
 ├── 02-Test-Cases/              # Cas de tests manuels par module
 ├── 03-Bug-Reports/             # Rapports de bugs + captures d'écran
-├── 04-Test-Execution/          # Rapports d’exécution
+├── 04-Test-Execution/          # Rapports d'exécution
 ├── 05-Automation/              # Tests automatisés Playwright
-├── 06-Notes-ISTQB/             # Notes d’exploration et techniques
+├── 06-Notes-ISTQB/             # Notes d'exploration et techniques
 ├── 07-API-Tests/               # Collection Postman
 └── README.md
-
+```
 
 ---
 
-## Tests Manuels
+## Installation et lancement
 
-| Module          | Nombre de Test Cases | Statut      | Bugs trouvés |
-|-----------------|----------------------|-------------|--------------|
-| Login           | 8                    | Terminé     | 0            |
-| Inventory       | 10                   | Terminé     | 1            |
-| Cart            | 10                   | Terminé     | 0            |
-| Checkout        | 12                   | Terminé     | 1            |
-| **Total**       | **40**               | -           | **3**        |
+### Prérequis
+
+- Node.js (version 18 ou supérieure)
+- Git
+- Postman (pour les tests API)
+
+### Installation
+
+```bash
+git clone https://github.com/Medhy-c/qa-portfolio-saucedemo.git
+cd qa-portfolio-saucedemo
+npm install
+npx playwright install
+```
+
+---
+
+## Tests manuels
+
+| Module        | Nombre de Test Cases | Statut  | Bugs trouvés |
+|---------------|----------------------|---------|--------------|
+| Login         | 8                    | Terminé | 0            |
+| Inventory     | 10                   | Terminé | 2            |
+| Cart          | 10                   | Terminé | 0            |
+| Checkout      | 12                   | Terminé | 1            |
+| **Total**     | **40**               | -       | **3**        |
 
 ---
 
 ## Bugs identifiés
 
-| ID       | Titre                                              | Sévérité  | Lien |
-|----------|----------------------------------------------------|-----------|------|
-| BUG-001  | Last Name écrase First Name (problem_user)         | Majeure   | [Voir le bug](03-Bug-Reports/BUG-001_Checkout_LastName_Overwrite.md) |
-| BUG-002  | Images des produits identiques (problem_user)      | Moyenne   | [Voir le bug](03-Bug-Reports/BUG-002_Images_Identiques_problem_user.md) |
-| BUG-003  | Page About renvoie une erreur 404                  | Mineure   | [Voir le bug](03-Bug-Reports/BUG-003_About_Page_404.md) |
+| ID      | Titre                                         | Sévérité | Lien |
+|---------|-----------------------------------------------|----------|------|
+| BUG-001 | Last Name écrase First Name (problem_user)    | Majeure  | [Voir le bug](03-Bug-Reports/BUG-001_Checkout_LastName_Overwrite.md) |
+| BUG-002 | Images des produits identiques (problem_user) | Moyenne  | [Voir le bug](03-Bug-Reports/BUG-002_Images_Identiques_problem_user.md) |
+| BUG-003 | Page About renvoie une erreur 404             | Mineure  | [Voir le bug](03-Bug-Reports/BUG-003_About_Page_404.md) |
 
 ---
 
 ## Automatisation (Playwright + TypeScript)
 
-J’ai automatisé les scénarios critiques suivants avec une architecture **Page Object Model** + **Data Driven** :
+J'ai automatisé les scénarios critiques suivants avec une architecture **Page Object Model** et une approche **Data Driven** :
 
-| ID Test Auto     | Description                                      | Statut  |
-|------------------|--------------------------------------------------|---------|
-| TC-AUTO-001      | Connexion réussie avec standard_user             | Passé   |
-| TC-AUTO-002      | Connexion échouée avec locked_out_user           | Passé   |
-| TC-AUTO-003      | Parcours complet (Login → Panier → Checkout)     | Passé   |
-| TC-AUTO-004      | Vérification du nombre de produits (6)           | Passé   |
-| TC-AUTO-005      | Tri des produits par nom (A to Z)                | Passé   |
+| ID Test Auto | Description                                  | Statut |
+|--------------|----------------------------------------------|--------|
+| TC-AUTO-001  | Connexion réussie avec standard_user         | Passé  |
+| TC-AUTO-002  | Connexion échouée avec locked_out_user       | Passé  |
+| TC-AUTO-003  | Parcours complet (Login → Panier → Checkout) | Passé  |
+| TC-AUTO-004  | Vérification du nombre de produits (6)       | Passé  |
+| TC-AUTO-005  | Tri des produits par nom (A to Z)            | Passé  |
 
-**Technologies & pratiques utilisées :**
+**Technologies et pratiques utilisées :**
+
 - Playwright + TypeScript
 - Page Object Model (POM)
 - Data Driven Testing
 - GitHub Actions (CI)
 
-**Lancer les tests localement :**
+**Lancer les tests automatisés :**
 
+```bash
 npx playwright test
+```
 
 **Voir le rapport HTML :**
 
+```bash
 npx playwright show-report
+```
 
-Les tests s’exécutent aussi automatiquement à chaque push grâce à GitHub Actions.
+Les tests s'exécutent aussi automatiquement à chaque push grâce à GitHub Actions.
+
+---
 
 ## Tests API (Postman)
 
-J’ai réalisé des tests API sur l’API publique **ReqRes** :
+J'ai réalisé des tests API sur l'API publique **ReqRes** :
 
-| Méthode | Endpoint              | Description                  | Statut |
-|---------|-----------------------|------------------------------|--------|
-| GET     | /api/users?page=2     | Liste des utilisateurs       | Passé  |
-| GET     | /api/users/2          | Récupérer un utilisateur     | Passé  |
-| POST    | /api/users            | Créer un utilisateur         | Passé  |
-| PUT     | /api/users/2          | Modifier un utilisateur      | Passé  |
-| DELETE  | /api/users/2          | Supprimer un utilisateur     | Passé  |
+| Méthode | Endpoint          | Description              | Statut |
+|---------|-------------------|--------------------------|--------|
+| GET     | /api/users?page=2 | Liste des utilisateurs   | Passé  |
+| GET     | /api/users/2      | Récupérer un utilisateur | Passé  |
+| POST    | /api/users        | Créer un utilisateur     | Passé  |
+| PUT     | /api/users/2      | Modifier un utilisateur  | Passé  |
+| DELETE  | /api/users/2      | Supprimer un utilisateur | Passé  |
 
-La collection Postman est disponible ici :  
+La collection Postman est disponible ici :
 [ReqRes_API_Tests.postman_collection.json](07-API-Tests/ReqRes_API_Tests.postman_collection.json)
 
 ---
@@ -134,7 +162,7 @@ La collection Postman est disponible ici :
 
 ---
 
-## Prochaines étapes
+## Étapes réalisées
 
 - [x] Tests manuels complets (Login, Inventory, Cart, Checkout)
 - [x] Rédaction de Bug Reports professionnels
@@ -147,6 +175,6 @@ La collection Postman est disponible ici :
 
 ## Contact
 
-Je suis ouvert aux opportunités de **Testeur QA Junior** sur Lille et dans la région du Pas-de-Calais.
+Je suis ouvert aux opportunités de **Testeur QA Junior** sur Lille et dans la région du Pas-de-Calais, ainsi qu'aux contrats d'**alternance** en informatique.
 
-N’hésitez pas à me contacter !
+N'hésitez pas à me contacter via GitHub !

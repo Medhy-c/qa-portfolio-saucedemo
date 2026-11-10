@@ -108,4 +108,40 @@ test('TC-AUTO-005 : Tri des produits par nom (A to Z)', async ({ page }) => {
   expect(productNames).toEqual(sortedNames);
 });
 
+
+  test('TC-AUTO-006 : Impossible d’accéder au panier sans être connecté', async ({ page }) => {
+    
+    await page.goto('https://www.saucedemo.com/cart.html');
+
+    
+    await expect(page).toHaveURL('https://www.saucedemo.com/');
+    await expect(page.locator('#login-button')).toBeVisible();
+  });
+
+
+  test('TC-AUTO-007 : Suppression d’un produit du panier', async ({ page }) => {
+    const loginPage = new LoginPage(page);
+    const inventoryPage = new InventoryPage(page);
+    const cartPage = new CartPage(page);
+
+    
+    await loginPage.goto();
+    await loginPage.login(users.standard.username, users.standard.password);
+    await inventoryPage.expectToBeOnInventoryPage();
+
+   
+    await inventoryPage.addProductToCart('add-to-cart-sauce-labs-backpack');
+    await inventoryPage.expectCartBadgeCount('1');
+
+   
+    await inventoryPage.goToCart();
+    await cartPage.expectToBeOnCartPage();
+
+   
+    await page.locator('[data-test="remove-sauce-labs-backpack"]').click();
+
+  
+    await expect(page.locator('.shopping_cart_badge')).toHaveCount(0);
+  });
+
 });
