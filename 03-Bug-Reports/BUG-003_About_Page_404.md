@@ -4,7 +4,7 @@
 **Détecté par** : Medhy  
 **Environnement** : Chrome / Windows 11  
 **URL** : https://www.saucedemo.com  
-**Compte utilisé** : standard_user / secret_sauce  
+**Compte utilisé** : problem_user / secret_sauce  
 **Sévérité** : Mineure  
 **Priorité** : Basse  
 **Statut** : Nouveau  
@@ -18,7 +18,9 @@ Le lien « About » présent dans le menu latéral redirige vers une page d’er
 
 ### Étapes pour reproduire
 1. Aller sur https://www.saucedemo.com
-2. Se connecter avec un compte valide (ex: `standard_user`)
+2. Se connecter avec :
+   - Username : `problem_user`
+   - Password : `secret_sauce`
 3. Cliquer sur le menu hamburger (en haut à gauche)
 4. Cliquer sur le lien **About**
 

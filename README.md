@@ -3,7 +3,7 @@
 ![Status](https://img.shields.io/badge/Status-Terminé-success)
 ![ISTQB](https://img.shields.io/badge/ISTQB-Foundation%20Level%20(préparation)-blue)
 ![Automation](https://img.shields.io/badge/Automation-Playwright%20+%20TypeScript-green)
-![CI](https://img.shields.io/badge/CI-GitHub%20Actions-blue)
+[![Playwright Tests](https://github.com/Medhy-c/qa-portfolio-saucedemo/actions/workflows/playwright.yml/badge.svg?branch=main)](https://github.com/Medhy-c/qa-portfolio-saucedemo/actions/workflows/playwright.yml)
 ![API](https://img.shields.io/badge/API-Postman-orange)
 
 ## Présentation
@@ -18,6 +18,7 @@ Ce projet a pour objectif de démontrer mes compétences en :
 - Exécution de tests manuels et reporting
 - Automatisation de tests avec **Playwright + TypeScript**
 - Tests API avec **Postman**
+- Suivi des anomalies avec **Jira**
 - Utilisation de Git / GitHub
 
 ---
@@ -53,6 +54,7 @@ qa-portfolio-saucedemo/
 ├── 05-Automation/              # Tests automatisés Playwright
 ├── 06-Notes-ISTQB/             # Notes d'exploration et techniques
 ├── 07-API-Tests/               # Collection Postman
+├── 08-Jira/                    # Captures du board et des tickets Jira
 └── README.md
 ```
 
@@ -96,6 +98,22 @@ npx playwright install
 | BUG-001 | Last Name écrase First Name (problem_user)    | Majeure  | [Voir le bug](03-Bug-Reports/BUG-001_Checkout_LastName_Overwrite.md) |
 | BUG-002 | Images des produits identiques (problem_user) | Moyenne  | [Voir le bug](03-Bug-Reports/BUG-002_Images_Identiques_problem_user.md) |
 | BUG-003 | Page About renvoie une erreur 404             | Mineure  | [Voir le bug](03-Bug-Reports/BUG-003_About_Page_404.md) |
+
+---
+
+## Gestion des anomalies avec Jira
+
+Les bugs identifiés sont également suivis dans un projet **Jira** (board Kanban, workflow : To Do → In Progress → In Review → Done). Chaque ticket contient l'environnement, les étapes de reproduction, les résultats attendu et obtenu, la priorité, la sévérité et une capture d'écran.
+
+Le projet Jira étant privé, les captures ci-dessous en présentent le contenu.
+
+**Board du projet**
+
+![Board Jira](08-Jira/board.png)
+
+**Exemple de ticket détaillé**
+
+![Exemple de ticket Jira](08-Jira/BUG-001-ticket.png)
 
 ---
 
@@ -170,6 +188,7 @@ La collection Postman est disponible ici :
 - [x] Amélioration du framework (Page Object Model)
 - [x] Intégration GitHub Actions (CI)
 - [x] Ajout de tests API (Postman)
+- [x] Suivi des anomalies dans Jira
 
 ---
 
